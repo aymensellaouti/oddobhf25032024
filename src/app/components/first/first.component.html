@@ -1,0 +1,16 @@
+<p [style.color]="color">Bonjour {{ name }}</p>
+<div [hidden]="isHidden">Test</div>
+<input
+  (change)="changeMessage(monInput.value)"
+  type="text"
+  #monInput>
+
+Le contenu de l'input est : {{message}}
+<div class="alert alert-success">
+  <app-second/>
+
+</div>
+
+balises :
+  state: attributs
+  events: comportement
