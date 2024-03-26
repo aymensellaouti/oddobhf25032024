@@ -1,10 +1,14 @@
-<div>Bonjour ODDO BHF</div>
+<div [ngStyle]="{
+  color,
+  fontFamily: font,
+  fontSize: size + 'px'
+}">Bonjour ODDO BHF</div>
 
 <div class="row">
-  <div class="col"><input type="color" class="form-control"></div>
-  <div class="col"><input type="number" class="form-control"></div>
+  <div class="col"><input [(ngModel)]="color" type="color" class="form-control"></div>
+  <div class="col"><input [(ngModel)]="size" type="number" class="form-control"></div>
   <div class="col">
-    <select class="form-control">
+    <select [(ngModel)]="font" class="form-control">
       <option value="garamond">garamond</option>
       <option value="arial">arial</option>
       <option value="verdana">verdana</option>
