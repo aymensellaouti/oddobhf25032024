@@ -1,8 +1,12 @@
-<img
-  src="assets/images/{{cv.path}}"
-  class="rounded-circle"
-  width="50"
-  height="50"
-  alt="{{cv.name}}">
+<div
+  (click)="selectCv()"
+>
+  <img
+    src="assets/images/{{cv.path}}"
+    class="rounded-circle"
+    width="50"
+    height="50"
+    alt="{{cv.name}}">
 
-  {{cv.firstname}} {{cv.name}}
+    {{cv.firstname}} {{cv.name}}
+</div>
