@@ -1,0 +1,15 @@
+.lampe {
+  width: 150px;
+  height: 150px;
+  padding: 50px;
+  border-radius: 50%;
+  border: black solid 2px;
+}
+.eteinte {
+  background-color: black;
+  color: white;
+}
+.allume {
+  background-color: yellow;
+  color: black;
+}

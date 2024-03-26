@@ -1,0 +1,11 @@
+<div
+  (click)="interrupteur()"
+  class="lampe" [ngClass]="{
+  'eteinte': isEteinte,
+  'allume': !isEteinte
+}">lampe</div>
+
+<p *ngIf="isEteinte">La lampe est éteinte</p>
+<p *ngIf="!isEteinte">La lampe est allumée</p>
+<p [hidden]="!isEteinte">La lampe est éteinte</p>
+<p [hidden]="isEteinte">La lampe est allumée</p>
