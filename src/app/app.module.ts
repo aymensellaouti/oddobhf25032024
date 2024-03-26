@@ -19,6 +19,7 @@ import { ListCvComponent } from './cv/list-cv/list-cv.component';
 import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { NgclassComponent } from './directives/ngclass/ngclass.component';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NgclassComponent } from './directives/ngclass/ngclass.component';
     ListCvComponent,
     NgstyleComponent,
     MiniWordComponent,
-    NgclassComponent
+    NgclassComponent,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,
