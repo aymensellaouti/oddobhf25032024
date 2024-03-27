@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwowayComponent } from './components/twoway/twoway.component';
-import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
 import { PereComponent } from './components/pere/pere.component';
 import { FilsComponent } from './components/fils/fils.component';
@@ -22,8 +26,9 @@ import { NgclassComponent } from './directives/ngclass/ngclass.component';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
-import { LoggerService } from './services/logger.service';
-import { SayHelloService } from './services/say-hello.service';
+
+import { TodoComponent } from './todo/todo/todo.component';
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
 
 @NgModule({
   declarations: [
@@ -45,14 +50,18 @@ import { SayHelloService } from './services/say-hello.service';
     NgclassComponent,
     DefaultImagePipe,
     HighlightDirective,
-    RainbowDirective
+    RainbowDirective,
+    TodoComponent,
+    EmbaucheComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
