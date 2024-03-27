@@ -3,6 +3,7 @@ import { Cv } from '../models/cv.model';
 import { LoggerService } from 'src/app/services/logger.service';
 import { SayHelloService } from 'src/app/services/say-hello.service';
 import { ToastrService } from 'ngx-toastr';
+import { CvService } from '../service/cv.service';
 
 @Component({
   selector: 'app-cv',
@@ -11,31 +12,20 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CvComponent {
   today = new Date();
-  cvs: Cv[] = [
-    new Cv(1, 'Ameni', 'ben Arab', 'QA', '', '1234', 35),
-    new Cv(2, 'Amine', 'Nouri', 'Dev', '     ', '1235', 20),
-    new Cv(3, 'Riadh', 'Kort', 'Dev', 'rotating_card_profile3.png', '1235', 37),
-    new Cv(
-      4,
-      'Oumaima',
-      'Nasr',
-      'Dev',
-      'rotating_card_profile.png',
-      '1236',
-      20
-    ),
-  ];
+  cvs: Cv[] = [];
   // helloService = new SayHelloService();
   selectedCv: Cv | null = null;
   // 7achti bel loggerService
   constructor(
     private loggerService: LoggerService,
     private helloService: SayHelloService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private  cvService: CvService
   ) {
     this.helloService.hello();
     this.loggerService.logger('cc je suis le CvComponent');
-    this.toastr.info('Bienvenu dans notre CvTech')
+    this.toastr.info('Bienvenu dans notre CvTech');
+    this.cvs = this.cvService.getCvs();
   }
   onForwardCv(cv: Cv) {
     this.selectedCv = cv;

@@ -7,6 +7,7 @@ import { Cv } from '../models/cv.model';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent {
+  @Input() size = 50;
   @Input({ required: true })
   cv!: Cv;
   @Output()
