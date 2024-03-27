@@ -36,4 +36,19 @@ export class CvService {
   getCvs(): Cv[] {
     return this.cvs;
   }
+
+  /**
+   * Retourne le cv par son id
+   */
+  getCvById(id:number): Cv | null {
+    return this.cvs.find(cv => cv.id == id) ?? null;
+  }
+
+  /**
+   * Supprime le cv passé en paramètre
+   */
+  deleteCv(cv: Cv): void {
+        const index = this.cvs.indexOf(cv);
+        this.cvs.splice(index, 1);
+  }
 }

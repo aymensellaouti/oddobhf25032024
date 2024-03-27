@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cv } from '../models/cv.model';
+import { CvService } from '../service/cv.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-cv',
@@ -7,5 +9,26 @@ import { Cv } from '../models/cv.model';
   styleUrls: ['./details-cv.component.css']
 })
 export class DetailsCvComponent {
-  cv!: Cv;
+  cv!: Cv | null;
+  cvService = inject(CvService);
+  acr = inject(ActivatedRoute);
+  router = inject(Router);
+
+  constructor() {
+    // On a révupérer le paramètre de la route
+    const id = this.acr.snapshot.params['id'];
+    // je cherche le cv d'id id
+    this.cv = this.cvService.getCvById(id);
+    // s'il n'existe pas je redirige vers cv
+    if (!this.cv) {
+      this.router.navigate(['cv']);
+    }
+  }
+
+  deleteCv() {
+    if (this.cv) {
+      this.cvService.deleteCv(this.cv);
+      this.router.navigate(['cv']);
+    }
+  }
 }
