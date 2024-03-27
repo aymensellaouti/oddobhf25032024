@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Cv } from '../models/cv.model';
+import { LoggerService } from 'src/app/services/logger.service';
+import { SayHelloService } from 'src/app/services/say-hello.service';
 
 @Component({
   selector: 'app-cv',
@@ -38,8 +40,16 @@ export class CvComponent {
       20
     ),
   ];
+  // helloService = new SayHelloService();
   selectedCv: Cv | null = null;
-
+  // 7achti bel loggerService
+  constructor(
+    private loggerService: LoggerService,
+    private helloService: SayHelloService
+  ) {
+    this.helloService.hello();
+    this.loggerService.logger('cc je suis le CvComponent');
+  }
   onForwardCv(cv: Cv) {
     this.selectedCv = cv;
   }
