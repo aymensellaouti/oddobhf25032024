@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['']">ODDO BHF</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link"
+       [routerLinkActiveOptions]="{exact: true}"
+       [routerLink]="['']"
+       routerLinkActive="active text-primary"
+       >Home </a>
+      <a class="nav-item nav-link" [routerLink]="['cv']" routerLinkActive="active text-primary">Cv</a>
+      <a class="nav-item nav-link" [routerLink]="['todo']" routerLinkActive="active text-primary">Todo</a>
+      <a class="nav-item nav-link" [routerLink]="['word']" routerLinkActive="active text-primary">Word</a>
+
+    </div>
+  </div>
+</nav>

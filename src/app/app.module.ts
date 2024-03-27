@@ -29,6 +29,8 @@ import { RainbowDirective } from './directives/rainbow.directive';
 
 import { TodoComponent } from './todo/todo/todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
     RainbowDirective,
     TodoComponent,
     EmbaucheComponent,
+    NavbarComponent,
+    DetailsCvComponent,
   ],
   imports: [
     BrowserModule,
