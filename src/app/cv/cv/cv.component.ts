@@ -25,7 +25,15 @@ export class CvComponent {
     this.helloService.hello();
     this.loggerService.logger('cc je suis le CvComponent');
     this.toastr.info('Bienvenu dans notre CvTech');
-    this.cvs = this.cvService.getCvs();
+    this.cvService.getCvs().subscribe({
+      next: (cvsFromApi) => {
+        this.cvs = cvsFromApi
+      },
+      error: (err) => {
+        this.cvs = this.cvService.getFakeCvs();
+        this.toastr.error('Les data sont fake merci de contacter l admin');
+      }
+    })
     this.cvService.selectCvSubject.subscribe({
       next: (cv) => this.selectedCv = cv,
     })

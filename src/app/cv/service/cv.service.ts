@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Cv } from '../models/cv.model';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { APP_API } from 'src/app/config/api.config';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +10,7 @@ import { Subject } from 'rxjs';
 export class CvService {
   private cvs: Cv[] = [];
   selectCvSubject = new Subject<Cv>();
+  http = inject(HttpClient);
   constructor() {
     this.cvs = [
       new Cv(1, 'Ameni', 'ben Arab', 'QA', '', '1234', 35),
@@ -35,23 +38,45 @@ export class CvService {
   /**
    * Retourne la liste des cvs
    */
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.cvs;
+  }
+
+  /**
+   * Retourne la liste des cvs
+   */
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(APP_API.cv);
   }
 
   /**
    * Retourne le cv par son id
    */
-  getCvById(id:number): Cv | null {
-    return this.cvs.find(cv => cv.id == id) ?? null;
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cv + id);
+  }
+
+  /**
+   * supprime le cv par son id
+   */
+  deleteCvById(id: number): Observable<any> {
+
+    return this.http.delete(APP_API.cv + id);
+  }
+
+  /**
+   * Retourne le cv par son id
+   */
+  getFakeCvById(id: number): Cv | null {
+    return this.cvs.find((cv) => cv.id == id) ?? null;
   }
 
   /**
    * Supprime le cv passé en paramètre
    */
   deleteCv(cv: Cv): void {
-        const index = this.cvs.indexOf(cv);
-        this.cvs.splice(index, 1);
+    const index = this.cvs.indexOf(cv);
+    this.cvs.splice(index, 1);
   }
 
   /**
