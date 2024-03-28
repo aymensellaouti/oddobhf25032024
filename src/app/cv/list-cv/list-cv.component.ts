@@ -8,6 +8,6 @@ import { Cv } from '../models/cv.model';
 })
 export class ListCvComponent {
   @Input() cvs: Cv[] = [];
-  @Output() forwardCv = new EventEmitter<Cv>();
+  // @Output() forwardCv = new EventEmitter<Cv>();
 
 }

@@ -6,6 +6,6 @@
       'list-group-item-secondary': !isOdd
     }"
     class="list-group-item">
-    <app-item (selectCvEvent)="forwardCv.emit($event)" [cv]="actualCv"/>
+    <app-item [cv]="actualCv"/>
   </li>
 </ol>

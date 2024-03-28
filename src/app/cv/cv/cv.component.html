@@ -3,7 +3,8 @@
     <div class="alert alert-warning">
       {{ today | date:'full' | titlecase}}
     </div>
-    <app-list-cv (forwardCv)="onForwardCv($event)" [cvs]="cvs"/></div>
+    <app-list-cv [cvs]="cvs"/></div>
   <div class="col"><app-cv-card [cv]="selectedCv"/></div>
 </div>
 <app-embauche/>
+<app-test-http/>

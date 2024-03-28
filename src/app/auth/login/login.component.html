@@ -12,6 +12,7 @@
     <input type="password" minlength="4" required ngModel name="password" class="form-control" id="exampleInputPassword1">
   </div>
   <button
+    (click)="login(loginForm.value)"
     [disabled]="loginForm.invalid"
     [ngClass]="{
       'button-error': loginForm.invalid

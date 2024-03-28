@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Cv } from '../models/cv.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
   private cvs: Cv[] = [];
+  selectCvSubject = new Subject<Cv>();
   constructor() {
     this.cvs = [
       new Cv(1, 'Ameni', 'ben Arab', 'QA', '', '1234', 35),
@@ -50,5 +52,14 @@ export class CvService {
   deleteCv(cv: Cv): void {
         const index = this.cvs.indexOf(cv);
         this.cvs.splice(index, 1);
+  }
+
+  /**
+   * Elle va notifier tous les subscribers avec le nouveau
+   * Cv séléctionné
+   * @param cv
+   */
+  selectCv(cv: Cv): void {
+    this.selectCvSubject.next(cv);
   }
 }

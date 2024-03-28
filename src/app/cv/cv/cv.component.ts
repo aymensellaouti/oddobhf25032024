@@ -26,6 +26,9 @@ export class CvComponent {
     this.loggerService.logger('cc je suis le CvComponent');
     this.toastr.info('Bienvenu dans notre CvTech');
     this.cvs = this.cvService.getCvs();
+    this.cvService.selectCvSubject.subscribe({
+      next: (cv) => this.selectedCv = cv,
+    })
   }
   onForwardCv(cv: Cv) {
     this.selectedCv = cv;

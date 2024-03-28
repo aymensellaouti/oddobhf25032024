@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -34,6 +35,8 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './form/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
+import { TestObservableComponent } from './obervables/test-observable/test-observable.component';
+import { TestHttpComponent } from './http/test-http/test-http.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,8 @@ import { LoginComponent } from './auth/login/login.component';
     NF404Component,
     TestFormComponent,
     LoginComponent,
+    TestObservableComponent,
+    TestHttpComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +75,7 @@ import { LoginComponent } from './auth/login/login.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

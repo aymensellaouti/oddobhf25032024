@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { Cv } from '../models/cv.model';
+import { CvService } from '../service/cv.service';
 
 @Component({
   selector: 'app-item',
@@ -10,9 +11,11 @@ export class ItemComponent {
   @Input() size = 50;
   @Input({ required: true })
   cv!: Cv;
-  @Output()
-  selectCvEvent = new EventEmitter<Cv>();
+  cvService = inject(CvService);
+  // @Output()
+  // selectCvEvent = new EventEmitter<Cv>();
   selectCv() {
-    this.selectCvEvent.emit(this.cv);
+    this.cvService.selectCv(this.cv);
+    // this.selectCvEvent.emit(this.cv);
   }
 }
